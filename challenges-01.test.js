@@ -29,7 +29,12 @@ const pushIntoSecond = (arr) => {
 // ------------------------------------------------------------------------------------------------
 
 const addBonusPoints = (arr) => {
-  // Solution code here...
+    const scores = [];
+    for(let raw of arr){
+        raw += 5;
+        scores.push(raw);
+    }
+    return scores;
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -186,17 +191,17 @@ const fizzbuzz = (arr) => {
 //
 // ------------------------------------------------------------------------------------------------
 
-describe('Testing challenge 1', () => {
-  test('It should push all of the elements from the first array into the second array', () => {
-    expect(pushIntoSecond([1, 2, 3, 4, 5])).toStrictEqual([ 1, 2, 3, 4, 5 ]);
-  });
-});
-
-// describe('Testing challenge 2', () => {
-//   test('It should add five bonus points to each raw score', () => {
-//     expect(addBonusPoints([55, 79, 100, 85, 92])).toStrictEqual([ 60, 84, 105, 90, 97 ]);
+// describe('Testing challenge 1', () => {
+//   test('It should push all of the elements from the first array into the second array', () => {
+//     expect(pushIntoSecond([1, 2, 3, 4, 5])).toStrictEqual([ 1, 2, 3, 4, 5 ]);
 //   });
 // });
+
+describe('Testing challenge 2', () => {
+  test('It should add five bonus points to each raw score', () => {
+    expect(addBonusPoints([55, 79, 100, 85, 92])).toStrictEqual([ 60, 84, 105, 90, 97 ]);
+  });
+});
 
 // describe('Testing challenge 3', () => {
 //   test('It should increase each raw score by 5%', () => {
