@@ -93,12 +93,22 @@ const greeting = (word) => {
   // ------------------------------------------------------------------------------------------------
   
   const addValues = (arr, value) => {
-    // Solution code here...
+    const increasedArray = [];
+    for (let rawValues of arr){
+        rawValues += value;
+        increasedArray.push(rawValues); 
+    }
+    return increasedArray
   }
   
   const addNumbers = (num, arr, times, callback) => {
-    // Solution code here...
-  }
+    const numberArray = [];
+    for (let rawNumbers in times){
+       rawNumbers = callback(num,arr);
+       numberArray.push(rawNumbers);
+    }
+    return numberArray;
+}
   
   // ------------------------------------------------------------------------------------------------
   // CHALLENGE 6
@@ -220,18 +230,18 @@ const greeting = (word) => {
 //     });
 //   });
   
-  describe('Testing challenge 4', () => {
-    test('It should return the message with all uppercase characters', () => {
-      expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
-    });
-  });
-  
-//   describe('Testing challenge 5', () => {
-//     test('It should add the number 8 to the array five times', () => {
-//       expect(addNumbers(8, [], 5, addValues)).toStrictEqual([ 8, 8, 8, 8, 8 ]);
-//       expect(addNumbers(8, [], 5, addValues).length).toStrictEqual(5);
+//   describe('Testing challenge 4', () => {
+//     test('It should return the message with all uppercase characters', () => {
+//       expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
 //     });
 //   });
+  
+  describe('Testing challenge 5', () => {
+    test('It should add the number 8 to the array five times', () => {
+      expect(addNumbers(8, [], 5, addValues)).toStrictEqual([ 8, 8, 8, 8, 8 ]);
+      expect(addNumbers(8, [], 5, addValues).length).toStrictEqual(5);
+    });
+  });
   
 //   describe('Testing challenge 6', () => {
 //     test('It should remove three elements from the array', () => {
