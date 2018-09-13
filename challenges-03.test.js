@@ -100,7 +100,7 @@ return valentinesMessage;
 const nestedArray = [ [ [1, 2, 3], [4, 5, 6] ], [ [7, 8, 9], [10, 11, 12] ], [ [13, 14, 15], [16, 17, 18] ] ];
 
 const findFourteen = (array) => {
-  // Solution code here...
+  return array[2][0][1];
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -274,41 +274,41 @@ const excel = (str) => {
 //   });
 // });
 
-describe('Testing challenge 3', () => {
-  test('It should return a list of valentine exchanges', () => {
-    expect(giveValentines(['Jerry', 'George', 'Elaine', 'Kramer', 'Newman'])).toStrictEqual([
-      'Jerry gives a Valentine to George.',
-      'Jerry gives a Valentine to Elaine.',
-      'Jerry gives a Valentine to Kramer.',
-      'Jerry gives a Valentine to Newman.',
-      'George gives a Valentine to Jerry.',
-      'George gives a Valentine to Elaine.',
-      'George gives a Valentine to Kramer.',
-      'George gives a Valentine to Newman.',
-      'Elaine gives a Valentine to Jerry.',
-      'Elaine gives a Valentine to George.',
-      'Elaine gives a Valentine to Kramer.',
-      'Elaine gives a Valentine to Newman.',
-      'Kramer gives a Valentine to Jerry.',
-      'Kramer gives a Valentine to George.',
-      'Kramer gives a Valentine to Elaine.',
-      'Kramer gives a Valentine to Newman.',
-      'Newman gives a Valentine to Jerry.',
-      'Newman gives a Valentine to George.',
-      'Newman gives a Valentine to Elaine.',
-      'Newman gives a Valentine to Kramer.'
-    ]);
-  });
-});
-
-// describe('Testing challenge 4', () => {
-//   test('It should return the number 14', () => {
-//     expect(findFourteen(nestedArray)).toStrictEqual(14);
+// describe('Testing challenge 3', () => {
+//   test('It should return a list of valentine exchanges', () => {
+//     expect(giveValentines(['Jerry', 'George', 'Elaine', 'Kramer', 'Newman'])).toStrictEqual([
+//       'Jerry gives a Valentine to George.',
+//       'Jerry gives a Valentine to Elaine.',
+//       'Jerry gives a Valentine to Kramer.',
+//       'Jerry gives a Valentine to Newman.',
+//       'George gives a Valentine to Jerry.',
+//       'George gives a Valentine to Elaine.',
+//       'George gives a Valentine to Kramer.',
+//       'George gives a Valentine to Newman.',
+//       'Elaine gives a Valentine to Jerry.',
+//       'Elaine gives a Valentine to George.',
+//       'Elaine gives a Valentine to Kramer.',
+//       'Elaine gives a Valentine to Newman.',
+//       'Kramer gives a Valentine to Jerry.',
+//       'Kramer gives a Valentine to George.',
+//       'Kramer gives a Valentine to Elaine.',
+//       'Kramer gives a Valentine to Newman.',
+//       'Newman gives a Valentine to Jerry.',
+//       'Newman gives a Valentine to George.',
+//       'Newman gives a Valentine to Elaine.',
+//       'Newman gives a Valentine to Kramer.'
+//     ]);
 //   });
-//   test('It should also work for other input arrays', () => {
-//     expect(findFourteen([[], [], [[0,1,2]]])).toStrictEqual(1);
-//   })
 // });
+
+describe('Testing challenge 4', () => {
+  test('It should return the number 14', () => {
+    expect(findFourteen(nestedArray)).toStrictEqual(14);
+  });
+  test('It should also work for other input arrays', () => {
+    expect(findFourteen([[], [], [[0,1,2]]])).toStrictEqual(1);
+  })
+});
 
 // describe('Testing challenge 5', () => {
 //   test('It should return the number 24', () => {
