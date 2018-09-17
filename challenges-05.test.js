@@ -127,7 +127,11 @@ Use the split method for this function.
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+
+  recipe.steps.forEach((step) => {
+    result.push(step.split(' ')[0]);
+  });
+
   return result;
 }
 
@@ -145,9 +149,13 @@ For example:
 ------------------------------------------------------------------------*/
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  for(let i = 0; i < arr.length; i++){
+    if (arr[i] % 2 === 0){
+      arr.splice(i, 1);
+      i = 0;
+    }
+  }
 };
-
 /*------------------------------------------------------------------------
 CHALLENGE 8
 
@@ -221,12 +229,12 @@ Run your tests from the console: jest challenges-05.test.js
 //   });
 // });
 
-describe('Testing challenge 3', () => {
-  test('It should add up the numbers contained within the string', () => {
-    expect(totalSumCSV('1,4,5,7,2')).toStrictEqual(19);
-    expect(totalSumCSV('147')).toStrictEqual(147);
-  });
-});
+// describe('Testing challenge 3', () => {
+//   test('It should add up the numbers contained within the string', () => {
+//     expect(totalSumCSV('1,4,5,7,2')).toStrictEqual(19);
+//     expect(totalSumCSV('147')).toStrictEqual(147);
+//   });
+// });
 
 // describe('Testing challenge 4', () => {
 //   test('It should return a list of foods', () => {
@@ -248,18 +256,18 @@ describe('Testing challenge 3', () => {
 //   });
 // });
 
-// describe('Testing challenge 7', () => {
-//   test('It should remove the even numbers from the array', () => {
-//     let list = [1, 2, 3, 4, 5, 6];
-//     removeEvenValues(list);
-//     expect(list).toStrictEqual([1, 3, 5]);
+describe('Testing challenge 7', () => {
+  test('It should remove the even numbers from the array', () => {
+    let list = [1, 2, 3, 4, 5, 6];
+    removeEvenValues(list);
+    expect(list).toStrictEqual([1, 3, 5]);
 
-//     list = [6, 3, 19, 43, 12, 66, 43];
-//     removeEvenValues(list);
-//     expect(list).toStrictEqual([3, 19, 43, 43]);
-//     expect(list.length).toStrictEqual(4);
-//   });
-// });
+    list = [6, 3, 19, 43, 12, 66, 43];
+    removeEvenValues(list);
+    expect(list).toStrictEqual([3, 19, 43, 43]);
+    expect(list.length).toStrictEqual(4);
+  });
+});
 
 // describe('Testing challenge 8', () => {
 //   test('It should shorten the string based on the first argument', () => {
