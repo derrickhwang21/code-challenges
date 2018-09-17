@@ -183,7 +183,7 @@ For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------*/
 
 const removeVowels = (str) => {
-  // Solution code here...
+  return str.replace(/[aeiou]/ig, '');
 };
 
 /*------------------------------------------------------------------------
@@ -256,18 +256,18 @@ Run your tests from the console: jest challenges-05.test.js
 //   });
 // });
 
-describe('Testing challenge 7', () => {
-  test('It should remove the even numbers from the array', () => {
-    let list = [1, 2, 3, 4, 5, 6];
-    removeEvenValues(list);
-    expect(list).toStrictEqual([1, 3, 5]);
+// describe('Testing challenge 7', () => {
+//   test('It should remove the even numbers from the array', () => {
+//     let list = [1, 2, 3, 4, 5, 6];
+//     removeEvenValues(list);
+//     expect(list).toStrictEqual([1, 3, 5]);
 
-    list = [6, 3, 19, 43, 12, 66, 43];
-    removeEvenValues(list);
-    expect(list).toStrictEqual([3, 19, 43, 43]);
-    expect(list.length).toStrictEqual(4);
-  });
-});
+//     list = [6, 3, 19, 43, 12, 66, 43];
+//     removeEvenValues(list);
+//     expect(list).toStrictEqual([3, 19, 43, 43]);
+//     expect(list.length).toStrictEqual(4);
+//   });
+// });
 
 // describe('Testing challenge 8', () => {
 //   test('It should shorten the string based on the first argument', () => {
@@ -285,14 +285,14 @@ describe('Testing challenge 7', () => {
 //   });
 // });
 
-// describe('Testing challenge 9', () => {
-//   test('It should return the string without vowels', () => {
-//     expect(removeVowels('gregor')).toStrictEqual('grgr');
-//     expect(removeVowels('gregor').length).toStrictEqual(4);
-//     expect(removeVowels('asdf')).toStrictEqual('sdf');
-//     expect(removeVowels('why')).toStrictEqual('why');
-//   });
-// });
+describe('Testing challenge 9', () => {
+  test('It should return the string without vowels', () => {
+    expect(removeVowels('gregor')).toStrictEqual('grgr');
+    expect(removeVowels('gregor').length).toStrictEqual(4);
+    expect(removeVowels('asdf')).toStrictEqual('sdf');
+    expect(removeVowels('why')).toStrictEqual('why');
+  });
+});
 
 // describe('Testing challenge 10', () => {
 //   test('It should return the string without vowels', () => {
