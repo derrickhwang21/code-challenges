@@ -69,7 +69,8 @@ let characters = [
 ]
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+
+
 }
 
 /*------------------------------------------------------------------------------------------------
@@ -80,7 +81,7 @@ Write a function named getHouses that returns a new array containing the names o
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+  Object.values(arr).forEach(houseKey => houses.push(houseKey.house) )
   return houses;
 }
 
@@ -163,11 +164,11 @@ Run your tests from the console: jest challenges-06.test.js
 
 ------------------------------------------------------------------------------------------------*/
 
-describe('Testing challenge 1', () => {
-  test('It should return the keys from an object', () => {
-    expect(getCourseKeys(courseInfo)).toStrictEqual([ 'name', 'duration', 'topics', 'finalExam' ]);
-  });
-});
+// describe('Testing challenge 1', () => {
+//   test('It should return the keys from an object', () => {
+//     expect(getCourseKeys(courseInfo)).toStrictEqual([ 'name', 'duration', 'topics', 'finalExam' ]);
+//   });
+// });
 
 // describe('Testing challenge 2', () => {
 //   test('something specific', () => {
@@ -175,12 +176,12 @@ describe('Testing challenge 1', () => {
 //   });
 // });
 
-// describe('Testing challenge 3', () => {
-//   test('something specific', () => {
-//     expect(getHouses(characters)).toStrictEqual([ 'Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Stark', 'Snow' ]);
-//     expect(getHouses(characters).length).toStrictEqual(7);
-//   });
-// });
+describe('Testing challenge 3', () => {
+  test('something specific', () => {
+    expect(getHouses(characters)).toStrictEqual([ 'Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Stark', 'Snow' ]);
+    expect(getHouses(characters).length).toStrictEqual(7);
+  });
+});
 
 // describe('Testing challenge 4', () => {
 //   test('It should return true for characters that have children', () => {
