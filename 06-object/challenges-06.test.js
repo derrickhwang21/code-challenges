@@ -76,12 +76,12 @@ const totalCharacters = (arr) => {
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named getHouses that returns a new array containing the names of all of the houses in the data set.
+Write a function named getHouses that returns a new array containing the characterName of all of the houses in the data set.
 ------------------------------------------------------------------------------------------------*/
 
 const getHouses = (arr) => {
   let houses = [];
-  Object.values(arr).forEach(houseKey => houses.push(houseKey.house) )
+  Object.values(arr).forEach(houseKey => houses.push(houseKey.house))
   return houses;
 }
 
@@ -98,8 +98,18 @@ hasChildrenValues(characters, 'Eddard') will return false
 ------------------------------------------------------------------------------------------------*/
 
 const hasChildrenValues = (arr, character) => {
+    let parents = []
+    Object.keys(arr).forEach((nameOccurence) => {
+        parents.push(arr[nameOccurence].name)
+    });
+    let children = parents.indexOf(character);
+      if ((Object.values(characters[children].children).length) === 0) {
+          return false
+      } else {
+          return true
+      }
+    }
 
-}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -109,9 +119,23 @@ Write a function named hasChildrenEntries that is similar to your hasChildrenVal
 The input and output of this function are the same as the input and output from challenge 4.
 ------------------------------------------------------------------------------------------------*/
 
+
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
-}
+
+    let parent = false;
+  
+    arr.forEach((obj, index) => {
+      if (obj.name === character) {
+        if (Object.entries(arr[index].children).length !== 0) {
+          parent = true;
+        } else {
+          parent = false;
+        }
+      }
+    });
+  
+    return parent;
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -170,11 +194,11 @@ Run your tests from the console: jest challenges-06.test.js
 //   });
 // });
 
-describe('Testing challenge 2', () => {
-  test('something specific', () => {
-    expect(totalCharacters(characters)).toStrictEqual(7);
-  });
-});
+// describe('Testing challenge 2', () => {
+//   test('something specific', () => {
+//     expect(totalCharacters(characters)).toStrictEqual(7);
+//   });
+// });
 
 // describe('Testing challenge 3', () => {
 //   test('something specific', () => {
@@ -193,15 +217,15 @@ describe('Testing challenge 2', () => {
 //   });
 // });
 
-// describe('Testing challenge 5', () => {
-//   test('It should return true for characters that have children', () => {
-//     expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
-//   });
+describe('Testing challenge 5', () => {
+  test('It should return true for characters that have children', () => {
+    expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
+  });
 
-//   test('It should return false to characters who do not have children', () => {
-//     expect(hasChildrenEntries(characters, 'Jon')).toBeFalsy();
-//   });
-// });
+  test('It should return false to characters who do not have children', () => {
+    expect(hasChildrenEntries(characters, 'Jon')).toBeFalsy();
+  });
+});
 
 // describe('Testing challenge 6', () => {
 //   test('It should return an object for each house containing the name and size', () => {
