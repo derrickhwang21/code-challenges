@@ -133,7 +133,6 @@ const hasChildrenEntries = (arr, character) => {
         }
       }
     });
-  
     return parent;
   };
 
