@@ -69,8 +69,8 @@ let characters = [
 ]
 
 const totalCharacters = (arr) => {
-
-
+    let numberOfCharacters = Object.keys(arr).length;
+    return numberOfCharacters;
 }
 
 /*------------------------------------------------------------------------------------------------
@@ -98,7 +98,7 @@ hasChildrenValues(characters, 'Eddard') will return false
 ------------------------------------------------------------------------------------------------*/
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -170,18 +170,18 @@ Run your tests from the console: jest challenges-06.test.js
 //   });
 // });
 
-// describe('Testing challenge 2', () => {
-//   test('something specific', () => {
-//     expect(totalCharacters(characters)).toStrictEqual(7);
-//   });
-// });
-
-describe('Testing challenge 3', () => {
+describe('Testing challenge 2', () => {
   test('something specific', () => {
-    expect(getHouses(characters)).toStrictEqual([ 'Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Stark', 'Snow' ]);
-    expect(getHouses(characters).length).toStrictEqual(7);
+    expect(totalCharacters(characters)).toStrictEqual(7);
   });
 });
+
+// describe('Testing challenge 3', () => {
+//   test('something specific', () => {
+//     expect(getHouses(characters)).toStrictEqual([ 'Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Stark', 'Snow' ]);
+//     expect(getHouses(characters).length).toStrictEqual(7);
+//   });
+// });
 
 // describe('Testing challenge 4', () => {
 //   test('It should return true for characters that have children', () => {
