@@ -26,7 +26,12 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------*/
 
 const forEachTwoToThe = (input) => {
-  // Solution code here...
+    let twoToThePowerArray = [];
+    input.forEach((element) => {
+        twoToThePowerArray.push(2 ** element);
+    })
+    return twoToThePowerArray;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
