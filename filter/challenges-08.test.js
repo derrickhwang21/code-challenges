@@ -80,7 +80,7 @@ const snorlaxData = {
 };
 
 const getBaseStatGreaterThan = (input, minBaseStat) => {
-  // Solution code here...
+  return input.filter(pokeObject => minBaseStat < pokeObject.baseStat);
 };
 
 /*------------------------------------------------------------------------------------------------
