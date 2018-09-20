@@ -157,7 +157,8 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 ------------------------------------------------------------------------------------------------*/
 
 const evenOddNumericValues = (input) => {
-  // Solution code here...
+  return input
+    .filter(element => typeof element === 'number').map(number => (number % 2 === 0 ? 'even' : 'odd'));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -249,20 +250,20 @@ Run your tests from the console: jest challenges-08.test.js
 //   });
 // });
 
-describe('Testing challenge 6', () => {
-  test('It should return an array containing characters who do not have children', () => {
-    expect(getCharactersWithoutChildren(characters)).toStrictEqual([ { name: 'Sansa', spouse: 'Tyrion', house: 'Stark' }, { name: 'Jon', spouse: null, house: 'Snow' } ]);
-    expect(getCharactersWithoutChildren(characters).length).toStrictEqual(2);
-  });
-});
-
-// describe('Testing challenge 7', () => {
-//   test('It should remove non-integers and return "even" or "odd', () => {
-//     expect(evenOddNumericValues(['Gregor', 2, 4, 1])).toStrictEqual(['even', 'even', 'odd']);
-//     expect(evenOddNumericValues(['Gregor', 2, 4, 1]).length).toStrictEqual(3);
-//     expect(evenOddNumericValues(['a', 'b', 'c'])).toStrictEqual([]);
-//   });
-//   test('It should not accept strings that look like numbers', () => {
-//     expect(evenOddNumericValues(['1', 2, 3, '4', 5,'6'])).toStrictEqual(['even', 'odd', 'odd']);
+// describe('Testing challenge 6', () => {
+//   test('It should return an array containing characters who do not have children', () => {
+//     expect(getCharactersWithoutChildren(characters)).toStrictEqual([ { name: 'Sansa', spouse: 'Tyrion', house: 'Stark' }, { name: 'Jon', spouse: null, house: 'Snow' } ]);
+//     expect(getCharactersWithoutChildren(characters).length).toStrictEqual(2);
 //   });
 // });
+
+describe('Testing challenge 7', () => {
+  test('It should remove non-integers and return "even" or "odd', () => {
+    expect(evenOddNumericValues(['Gregor', 2, 4, 1])).toStrictEqual(['even', 'even', 'odd']);
+    expect(evenOddNumericValues(['Gregor', 2, 4, 1]).length).toStrictEqual(3);
+    expect(evenOddNumericValues(['a', 'b', 'c'])).toStrictEqual([]);
+  });
+  test('It should not accept strings that look like numbers', () => {
+    expect(evenOddNumericValues(['1', 2, 3, '4', 5,'6'])).toStrictEqual(['even', 'odd', 'odd']);
+  });
+});
