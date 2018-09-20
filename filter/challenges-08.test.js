@@ -92,7 +92,7 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 ------------------------------------------------------------------------------------------------*/
 
 const getStatName = (input, minBaseStat) => {
-  // Solution code here...
+  return getBaseStatGreaterThan(input, minBaseStat).map(pokeObject => pokeObject.stat.name);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -193,29 +193,29 @@ Run your tests from the console: jest challenges-08.test.js
 //   })
 // });
 
-describe('Testing challenge 3', () => {
-  const firstNums = [1, 2, 3];
-  const secondNums = [1, 2, 3, 4];
+// describe('Testing challenge 3', () => {
+//   const firstNums = [1, 2, 3];
+//   const secondNums = [1, 2, 3, 4];
 
-  const firstStrings = ['Demi', 'Gregor', 'Hound'];
-  const secondStrings = ['Gary', 'Charlotte', 'Demi', 'Gregor', 'Hound'];
+//   const firstStrings = ['Demi', 'Gregor', 'Hound'];
+//   const secondStrings = ['Gary', 'Charlotte', 'Demi', 'Gregor', 'Hound'];
 
-  test('It should return an array that includes any elements not in the first array', () => {
-    expect(notInFirstArray(firstNums, secondNums)).toStrictEqual([4]);
-    expect(notInFirstArray(firstNums, secondNums).length).toStrictEqual(1);
-  });
+//   test('It should return an array that includes any elements not in the first array', () => {
+//     expect(notInFirstArray(firstNums, secondNums)).toStrictEqual([4]);
+//     expect(notInFirstArray(firstNums, secondNums).length).toStrictEqual(1);
+//   });
 
-  test('It should also work with an array of strings', () => {
-    expect(notInFirstArray(firstStrings, secondStrings)).toStrictEqual(['Gary', 'Charlotte']);
-    expect(notInFirstArray(firstStrings, secondStrings).length).toStrictEqual(2);
-  });
+//   test('It should also work with an array of strings', () => {
+//     expect(notInFirstArray(firstStrings, secondStrings)).toStrictEqual(['Gary', 'Charlotte']);
+//     expect(notInFirstArray(firstStrings, secondStrings).length).toStrictEqual(2);
+//   });
 
-  test('It should work with empty arrays', () => {
-    expect(notInFirstArray([], [])).toStrictEqual([]);
-    expect(notInFirstArray([], [1,2,3,4,5])).toStrictEqual([1,2,3,4,5]);
-    expect(notInFirstArray([1,2,3,4,5], [])).toStrictEqual([]);
-  });
-});
+//   test('It should work with empty arrays', () => {
+//     expect(notInFirstArray([], [])).toStrictEqual([]);
+//     expect(notInFirstArray([], [1,2,3,4,5])).toStrictEqual([1,2,3,4,5]);
+//     expect(notInFirstArray([1,2,3,4,5], [])).toStrictEqual([]);
+//   });
+// });
 
 // describe('Testing challenge 4', () => {
 //   test('It should return an array containing the stats that are greater than the input', () => {
@@ -228,26 +228,26 @@ describe('Testing challenge 3', () => {
 //   });
 // });
 
-// describe('Testing challenge 5', () => {
-//   test('It should return the name of the stats that exceed that maximum', () => {
-//     expect(getStatName(snorlaxData.stats, 50)).toStrictEqual([ 'special-defense', 'special-attack' ]);
-//     expect(getStatName(snorlaxData.stats, 50).length).toStrictEqual(2);
-//   });
+describe('Testing challenge 5', () => {
+  test('It should return the name of the stats that exceed that maximum', () => {
+    expect(getStatName(snorlaxData.stats, 50)).toStrictEqual([ 'special-defense', 'special-attack' ]);
+    expect(getStatName(snorlaxData.stats, 50).length).toStrictEqual(2);
+  });
 
-//   test('It should return the name of the stats that exceed that maximum', () => {
-//     expect(getStatName(snorlaxData.stats, 120)).toStrictEqual([]);
-//     expect(getStatName(snorlaxData.stats, 120).length).toStrictEqual(0);
-//   });
+  test('It should return the name of the stats that exceed that maximum', () => {
+    expect(getStatName(snorlaxData.stats, 120)).toStrictEqual([]);
+    expect(getStatName(snorlaxData.stats, 120).length).toStrictEqual(0);
+  });
 
-//   test('It should work for non-snorlax data', () => {
-//     expect(getStatName([
-//       {baseStat: 10, stat: {name: 'one'}},
-//       {baseStat: -85, stat: {name: 'two'}},
-//       {baseStat: 0, stat: {name: 'three'}},
-//       {baseStat: -50, stat: {name: 'four'}}
-//     ], -60)).toStrictEqual(['one', 'three', 'four']);
-//   });
-// });
+  test('It should work for non-snorlax data', () => {
+    expect(getStatName([
+      {baseStat: 10, stat: {name: 'one'}},
+      {baseStat: -85, stat: {name: 'two'}},
+      {baseStat: 0, stat: {name: 'three'}},
+      {baseStat: -50, stat: {name: 'four'}}
+    ], -60)).toStrictEqual(['one', 'three', 'four']);
+  });
+});
 
 // describe('Testing challenge 6', () => {
 //   test('It should return an array containing characters who do not have children', () => {
