@@ -152,7 +152,7 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------*/
 
 const reversedString = (input) => {
-  // Solution code here...
+  return input.split('').reduce((acc, cur) => cur + acc);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -270,18 +270,18 @@ Run your tests from the console: jest challenges-09.test.js
 //   });
 // });
 
-describe('Testing challenge 5', () => {
-  test('It should return an array containing the names of the children', () => {
-    expect(extractChildren(characters)).toStrictEqual([ 'Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras' ]);
-    expect(extractChildren(characters).length).toStrictEqual(10);
-  });
-});
-
-// describe('Testing challenge 6', () => {
-//   test('It should return the string with the characters in reverse order', () => {
-//     expect(reversedString('Code 301')).toStrictEqual('103 edoC');
+// describe('Testing challenge 5', () => {
+//   test('It should return an array containing the names of the children', () => {
+//     expect(extractChildren(characters)).toStrictEqual([ 'Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras' ]);
+//     expect(extractChildren(characters).length).toStrictEqual(10);
 //   });
 // });
+
+describe('Testing challenge 6', () => {
+  test('It should return the string with the characters in reverse order', () => {
+    expect(reversedString('Code 301')).toStrictEqual('103 edoC');
+  });
+});
 
 // describe('Testing challenge 7', () => {
 //   test('It should return a count of the prime numbers in the array', () => {
