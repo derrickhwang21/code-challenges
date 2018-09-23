@@ -63,6 +63,8 @@ const characters = [
 const countNumberOfChildren = (input) => {
   input.reduce((acc, cur) => acc.children ? acc + cur.children.length : acc, 0)};
 
+
+
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -103,7 +105,8 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, input) => {
-  // Solution code here...
+  input.reduce((acc, cur) =>
+  !acc && cur.sta.name === statName ? acc = cur : acc, null);
 };
 
 /*------------------------------------------------------------------------------------------------
