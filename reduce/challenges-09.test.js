@@ -129,8 +129,19 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------*/
 
 const extractChildren = input => {
-  // Solution code here...
+  return input.filter((character) => character.name.match(/[a]/))
+    .reduce((acc, cur) => {
+      if (cur.children) {
+        cur.children.forEach((child) => {
+          acc.push(child);
+        });
+        return acc;
+      } else {
+        return acc;
+      }
+    }, []);
 };
+
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -253,18 +264,18 @@ Run your tests from the console: jest challenges-09.test.js
 //   });
 // });
 
-describe('Testing challenge 4', () => {
-  test('It should return the average of the numbers in the array', () => {
-    expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85 ])).toStrictEqual(64);
-  });
-});
-
-// describe('Testing challenge 5', () => {
-//   test('It should return an array containing the names of the children', () => {
-//     expect(extractChildren(characters)).toStrictEqual([ 'Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras' ]);
-//     expect(extractChildren(characters).length).toStrictEqual(10);
+// describe('Testing challenge 4', () => {
+//   test('It should return the average of the numbers in the array', () => {
+//     expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85 ])).toStrictEqual(64);
 //   });
 // });
+
+describe('Testing challenge 5', () => {
+  test('It should return an array containing the names of the children', () => {
+    expect(extractChildren(characters)).toStrictEqual([ 'Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras' ]);
+    expect(extractChildren(characters).length).toStrictEqual(10);
+  });
+});
 
 // describe('Testing challenge 6', () => {
 //   test('It should return the string with the characters in reverse order', () => {
