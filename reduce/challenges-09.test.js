@@ -61,8 +61,7 @@ const characters = [
 ];
 
 const countNumberOfChildren = (input) => {
-  // Solution code here...
-};
+  input.reduce((acc, cur) => acc.children ? acc + cur.children.length : acc, 0)};
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 3
