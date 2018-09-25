@@ -66,7 +66,7 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------*/
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  return phoneNumber.search(/\(?([0-9]{3})\)?([ -]?)([0-9]{3})\2([0-9]{4})/);
 };
 
 
