@@ -41,7 +41,7 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------*/
 
 const validateEmail = (email) => {
-  // Solution code here...
+return email.search(/^\w+\.?\w+\@\w+\.(net|com|org)$/) !== -1 ? true : false;
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -93,44 +93,44 @@ Run your tests from the console: jest solutions-11.test.js
 //   });
 // });
 
-describe('Testing challenge 2', () => {
-  test('It should return the closing tags', () => {
-    expect(findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'])).toStrictEqual([ '/h1', '/p' ]);
-  });
-  test('It should work if there are multiple closing tags in a single string', () => {
-    expect(findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])).toStrictEqual([ '/h1', '/div', '/p' ]);
-  });
-});
-
-// describe('Testing challenge 3', () => {
-//   test('It should match a basic email', () => {
-//     expect(validateEmail('joe@codefellows.com')).toBeTruthy();
+// describe('Testing challenge 2', () => {
+//   test('It should return the closing tags', () => {
+//     expect(findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'])).toStrictEqual([ '/h1', '/p' ]);
 //   });
-
-//   test('It should match if the email contains a period', () => {
-//     expect(validateEmail('joe.schmoe@codefellows.net')).toBeTruthy();
+//   test('It should work if there are multiple closing tags in a single string', () => {
+//     expect(findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])).toStrictEqual([ '/h1', '/div', '/p' ]);
 //   });
-
-//   test('It should match if the email contains other top-level domains', () => {
-//     expect(validateEmail('joe@codefellows.org')).toBeTruthy();
-//   });
-
-//   test('It should match if the email contains a period and other top-level domains', () => {
-//     expect(validateEmail('joe.schmoe@codefellows.net')).toBeTruthy();
-//   });
-
-//   test ('It should fail things that aren\'t email addresses', () => {
-//     expect(validateEmail('justastring')).toBeFalsy();
-//     expect(validateEmail('missing@adomain')).toBeFalsy();
-//     expect(validateEmail('@noname.com')).toBeFalsy();
-//     expect(validateEmail('.@noname.com')).toBeFalsy();
-//     expect(validateEmail('nolastname.@sadness.net')).toBeFalsy();
-//     expect(validateEmail('canadaisnotreal@canada.ca')).toBeFalsy();
-//     expect(validateEmail('missing.atsymbol.net')).toBeFalsy();
-//     expect(validateEmail('looksgood@sofar.comohnowaitthisisbad')).toBeFalsy();
-//     expect(validateEmail('no.middle.names@foryou.com')).toBeFalsy();
-//   })
 // });
+
+describe('Testing challenge 3', () => {
+  test('It should match a basic email', () => {
+    expect(validateEmail('joe@codefellows.com')).toBeTruthy();
+  });
+
+  test('It should match if the email contains a period', () => {
+    expect(validateEmail('joe.schmoe@codefellows.net')).toBeTruthy();
+  });
+
+  test('It should match if the email contains other top-level domains', () => {
+    expect(validateEmail('joe@codefellows.org')).toBeTruthy();
+  });
+
+  test('It should match if the email contains a period and other top-level domains', () => {
+    expect(validateEmail('joe.schmoe@codefellows.net')).toBeTruthy();
+  });
+
+  test ('It should fail things that aren\'t email addresses', () => {
+    expect(validateEmail('justastring')).toBeFalsy();
+    expect(validateEmail('missing@adomain')).toBeFalsy();
+    expect(validateEmail('@noname.com')).toBeFalsy();
+    expect(validateEmail('.@noname.com')).toBeFalsy();
+    expect(validateEmail('nolastname.@sadness.net')).toBeFalsy();
+    expect(validateEmail('canadaisnotreal@canada.ca')).toBeFalsy();
+    expect(validateEmail('missing.atsymbol.net')).toBeFalsy();
+    expect(validateEmail('looksgood@sofar.comohnowaitthisisbad')).toBeFalsy();
+    expect(validateEmail('no.middle.names@foryou.com')).toBeFalsy();
+  })
+});
 
 // describe('Testing challenge 4', () => {
 //   test('It should match the acceptable phone number formats', () => {
