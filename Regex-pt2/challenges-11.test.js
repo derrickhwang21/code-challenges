@@ -66,7 +66,7 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------*/
 
 const validatePhoneNumber = (phoneNumber) => {
-  return phoneNumber.search(/\(?([0-9]{3})\)?([ -]?)([0-9]{3})\2([0-9]{4})/);
+  return phoneNumber.search(/^\(?([0-9]{3})\)?([ -]?)([0-9]{3})([0-9]{4})$/) !== -1 ? true : false;
 };
 
 
@@ -102,56 +102,56 @@ Run your tests from the console: jest solutions-11.test.js
 //   });
 // });
 
-describe('Testing challenge 3', () => {
-  test('It should match a basic email', () => {
-    expect(validateEmail('joe@codefellows.com')).toBeTruthy();
-  });
-
-  test('It should match if the email contains a period', () => {
-    expect(validateEmail('joe.schmoe@codefellows.net')).toBeTruthy();
-  });
-
-  test('It should match if the email contains other top-level domains', () => {
-    expect(validateEmail('joe@codefellows.org')).toBeTruthy();
-  });
-
-  test('It should match if the email contains a period and other top-level domains', () => {
-    expect(validateEmail('joe.schmoe@codefellows.net')).toBeTruthy();
-  });
-
-  test ('It should fail things that aren\'t email addresses', () => {
-    expect(validateEmail('justastring')).toBeFalsy();
-    expect(validateEmail('missing@adomain')).toBeFalsy();
-    expect(validateEmail('@noname.com')).toBeFalsy();
-    expect(validateEmail('.@noname.com')).toBeFalsy();
-    expect(validateEmail('nolastname.@sadness.net')).toBeFalsy();
-    expect(validateEmail('canadaisnotreal@canada.ca')).toBeFalsy();
-    expect(validateEmail('missing.atsymbol.net')).toBeFalsy();
-    expect(validateEmail('looksgood@sofar.comohnowaitthisisbad')).toBeFalsy();
-    expect(validateEmail('no.middle.names@foryou.com')).toBeFalsy();
-  })
-});
-
-// describe('Testing challenge 4', () => {
-//   test('It should match the acceptable phone number formats', () => {
-//     expect(validatePhoneNumber('(555) 555-5555')).toBeTruthy();
-//     expect(validatePhoneNumber('555 555-5555')).toBeTruthy();
-//     expect(validatePhoneNumber('555-555-5555')).toBeTruthy();
-//     expect(validatePhoneNumber('555 5555555')).toBeTruthy();
-//     expect(validatePhoneNumber('5555555555')).toBeTruthy();
-//     expect(validatePhoneNumber('234 567 8910')).toBeTruthy();
+// describe('Testing challenge 3', () => {
+//   test('It should match a basic email', () => {
+//     expect(validateEmail('joe@codefellows.com')).toBeTruthy();
 //   });
-//   test('It should not match unacceptable phone number formats', () => {
-//     expect(validatePhoneNumber('abcdefghij')).toBeFalsy();
-//     expect(validatePhoneNumber('222 222 2222 ext. 2222')).toBeFalsy();
-//     expect(validatePhoneNumber('(222 222-2222')).toBeFalsy();
-//     expect(validatePhoneNumber('222 222-2222-')).toBeFalsy();
-//     expect(validatePhoneNumber('(222 222- 2222')).toBeFalsy();
-//     expect(validatePhoneNumber('(222 222 -2222')).toBeFalsy();
-//     expect(validatePhoneNumber('523 555--5555')).toBeFalsy();
-//     expect(validatePhoneNumber('55555555555')).toBeFalsy();
-//     expect(validatePhoneNumber('55555555555')).toBeFalsy();
-//     expect(validatePhoneNumber('55555555555')).toBeFalsy();
-//     expect(validatePhoneNumber('55_55_5555')).toBeFalsy();
+
+//   test('It should match if the email contains a period', () => {
+//     expect(validateEmail('joe.schmoe@codefellows.net')).toBeTruthy();
+//   });
+
+//   test('It should match if the email contains other top-level domains', () => {
+//     expect(validateEmail('joe@codefellows.org')).toBeTruthy();
+//   });
+
+//   test('It should match if the email contains a period and other top-level domains', () => {
+//     expect(validateEmail('joe.schmoe@codefellows.net')).toBeTruthy();
+//   });
+
+//   test ('It should fail things that aren\'t email addresses', () => {
+//     expect(validateEmail('justastring')).toBeFalsy();
+//     expect(validateEmail('missing@adomain')).toBeFalsy();
+//     expect(validateEmail('@noname.com')).toBeFalsy();
+//     expect(validateEmail('.@noname.com')).toBeFalsy();
+//     expect(validateEmail('nolastname.@sadness.net')).toBeFalsy();
+//     expect(validateEmail('canadaisnotreal@canada.ca')).toBeFalsy();
+//     expect(validateEmail('missing.atsymbol.net')).toBeFalsy();
+//     expect(validateEmail('looksgood@sofar.comohnowaitthisisbad')).toBeFalsy();
+//     expect(validateEmail('no.middle.names@foryou.com')).toBeFalsy();
 //   })
 // });
+
+describe('Testing challenge 4', () => {
+  test('It should match the acceptable phone number formats', () => {
+    expect(validatePhoneNumber('(555) 555-5555')).toBeTruthy();
+    expect(validatePhoneNumber('555 555-5555')).toBeTruthy();
+    expect(validatePhoneNumber('555-555-5555')).toBeTruthy();
+    expect(validatePhoneNumber('555 5555555')).toBeTruthy();
+    expect(validatePhoneNumber('5555555555')).toBeTruthy();
+    expect(validatePhoneNumber('234 567 8910')).toBeTruthy();
+  });
+  test('It should not match unacceptable phone number formats', () => {
+    expect(validatePhoneNumber('abcdefghij')).toBeFalsy();
+    expect(validatePhoneNumber('222 222 2222 ext. 2222')).toBeFalsy();
+    expect(validatePhoneNumber('(222 222-2222')).toBeFalsy();
+    expect(validatePhoneNumber('222 222-2222-')).toBeFalsy();
+    expect(validatePhoneNumber('(222 222- 2222')).toBeFalsy();
+    expect(validatePhoneNumber('(222 222 -2222')).toBeFalsy();
+    expect(validatePhoneNumber('523 555--5555')).toBeFalsy();
+    expect(validatePhoneNumber('55555555555')).toBeFalsy();
+    expect(validatePhoneNumber('55555555555')).toBeFalsy();
+    expect(validatePhoneNumber('55555555555')).toBeFalsy();
+    expect(validatePhoneNumber('55_55_5555')).toBeFalsy();
+  })
+});
