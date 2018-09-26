@@ -156,7 +156,9 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------*/
 
 const sortSchedule = (meetings) => {
-  // Solution code here...
+    return meetings.sort((a,b) => a.day === b.day ? a.end - b.end : a.start - b.start)
+
+    
 };
 
 /*------------------------------------------------------------------------------------------------
