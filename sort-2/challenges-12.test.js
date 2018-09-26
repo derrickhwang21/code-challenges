@@ -139,7 +139,7 @@ const sortMeetingsByDay = (meetings) => {
             'Thursday': 4,
             'Friday': 5,
     };
-    return meetings.sort((a,b) => businessDays[a.day] - businessDays[b.day]);
+    return meetings.sort((a,b) => businessDays[a.dayOfWeek] - businessDays[b.dayOfWeek]);
         
 
 
@@ -156,7 +156,7 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------*/
 
 const sortSchedule = (meetings) => {
-    return meetings.sort((a,b) => a.day === b.day ? a.end - b.end : a.start - b.start)
+    return sortMeetingsByDay(meetings).sort((a,b) => a.dayOfWeek === b.dayOfWeek ? (a.start - a.end) < (b.start - b.end) : a.start - b.start)
 
     
 };
@@ -246,26 +246,26 @@ Run your tests from the console: jest challenges-12.test.js
 //   });
 // });
 
-describe('Testing challenge 8', () => {
-  test('It should sort people with more strict ordering', () => {
-    const family = [
-      new Person('Casey', 'Codefellows', 55),
-      new Person('Casey', 'Codefellows', 37),
-      new Person('Charlie', 'Codefellows', 21),
-      new Person('Charles', 'Codefellows', 29),
-      new Person('Carol', 'Codefellow', 88),
-    ];
-    expect(sortPeopleBetter(family)).toStrictEqual([
-      new Person('Carol', 'Codefellow', 88),
-      new Person('Casey', 'Codefellows', 37),
-      new Person('Casey', 'Codefellows', 55),
-      new Person('Charles', 'Codefellows', 29),
-      new Person('Charlie', 'Codefellows', 21),
-    ]);
-    expect(sortPeopleBetter([{firstName: 'andrew', lastName: 'apple'}, {firstName: 'andre', lastName: 'apple'}]))
-      .toStrictEqual([{firstName: 'andre', lastName: 'apple'}, {firstName: 'andrew', lastName: 'apple'}]);
-  });
-});
+// describe('Testing challenge 8', () => {
+//   test('It should sort people with more strict ordering', () => {
+//     const family = [
+//       new Person('Casey', 'Codefellows', 55),
+//       new Person('Casey', 'Codefellows', 37),
+//       new Person('Charlie', 'Codefellows', 21),
+//       new Person('Charles', 'Codefellows', 29),
+//       new Person('Carol', 'Codefellow', 88),
+//     ];
+//     expect(sortPeopleBetter(family)).toStrictEqual([
+//       new Person('Carol', 'Codefellow', 88),
+//       new Person('Casey', 'Codefellows', 37),
+//       new Person('Casey', 'Codefellows', 55),
+//       new Person('Charles', 'Codefellows', 29),
+//       new Person('Charlie', 'Codefellows', 21),
+//     ]);
+//     expect(sortPeopleBetter([{firstName: 'andrew', lastName: 'apple'}, {firstName: 'andre', lastName: 'apple'}]))
+//       .toStrictEqual([{firstName: 'andre', lastName: 'apple'}, {firstName: 'andrew', lastName: 'apple'}]);
+//   });
+// });
 
 // describe('Testing challenge 9', () => {
 //   test('It should sort meetings by the day on which they happen', () => {
@@ -277,15 +277,15 @@ describe('Testing challenge 8', () => {
 //   });
 // });
 
-// describe('Testing challenge 10', () => {
-//   test('It should sort meetings by when they happen', () => {
-//     expect(sortSchedule(meetings)).toStrictEqual([
-//       new Meeting('Monday', '0900', '0945'),
-//       new Meeting('Monday', '0900', '1000'),
-//       new Meeting('Tuesday', '1145', '1315'),
-//       new Meeting('Wednesday', '0930', '1000'),
-//       new Meeting('Wednesday', '1300', '1500'),
-//       new Meeting('Friday', '1200', '1345'),
-//     ]);
-//   });
-// });
+describe('Testing challenge 10', () => {
+  test('It should sort meetings by when they happen', () => {
+    expect(sortSchedule(meetings)).toStrictEqual([
+      new Meeting('Monday', '0900', '0945'),
+      new Meeting('Monday', '0900', '1000'),
+      new Meeting('Tuesday', '1145', '1315'),
+      new Meeting('Wednesday', '0930', '1000'),
+      new Meeting('Wednesday', '1300', '1500'),
+      new Meeting('Friday', '1200', '1345'),
+    ]);
+  });
+});
