@@ -132,7 +132,17 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (meetings) => {
-  // Solution code here...
+    const businessDays = {
+            'Monday': 1,
+            'Tuesday': 2,
+            'Wednesday': 3,
+            'Thursday': 4,
+            'Friday': 5,
+    };
+    return meetings.sort((a,b) => businessDays[a.day] - businessDays[b.day]);
+        
+
+
 };
 
 /*------------------------------------------------------------------------------------------------
