@@ -64,10 +64,7 @@ let num = ''
 
 const allHappy = (strs) => {
 
-    for (let i in strs){
-        let happyi = strs[i];
-        happyi.includes(':)');
-    }
+    return strs.map(element, index) => element.includes(':)');
     
 };
 const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
@@ -151,7 +148,7 @@ const sortByDay = (eventStrings) => {
 // ------------------------------------------------------------------------------------------------
 
 const characterByIndex = (strs) => {
-  // Solution code here...
+  return strs.map((element, index) => element.charAt(index));
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -214,14 +211,14 @@ const characterByIndex = (strs) => {
 //   });
 // });
 
-describe('Testing challenge 6', () => {
-  test('It should find all the strings that contain a given string', () => {
-    const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
+// describe('Testing challenge 6', () => {
+//   test('It should find all the strings that contain a given string', () => {
+//     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
-    expect(findAnything(words, ':)')).toStrictEqual(findHappiness(words));
-    expect(findAnything(words, 'i')).toStrictEqual(['things', 'missing that thing']);
-  });
-});
+//     expect(findAnything(words, ':)')).toStrictEqual(findHappiness(words));
+//     expect(findAnything(words, 'i')).toStrictEqual(['things', 'missing that thing']);
+//   });
+// });
 
 // describe('Testing challenge 7', () => {
 //   test('It should determine whether all the strings contain a given string', () => {
