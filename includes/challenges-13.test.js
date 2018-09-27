@@ -23,7 +23,7 @@ const firstLetters = (strs) => {
 // ------------------------------------------------------------------------------------------------
 
 const findHappiness = (strs) => {
-  // Solution code here...
+    return strs.filter(element => element.includes(':)'));
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -153,26 +153,26 @@ const characterByIndex = (strs) => {
 //
 // ------------------------------------------------------------------------------------------------
 
-describe('Testing challenge 1', () => {
-  test('It should return the first letter of each element of the array', () => {
-    const words = ['apple', 'banana', 'cantaloupe'];
+// describe('Testing challenge 1', () => {
+//   test('It should return the first letter of each element of the array', () => {
+//     const words = ['apple', 'banana', 'cantaloupe'];
 
-    expect(firstLetters(words)).toStrictEqual(['a','b','c']);
-    expect(firstLetters(['a', 'b', 'c', 'd'])).toStrictEqual(['a', 'b', 'c', 'd']);
-    expect(firstLetters([])).toStrictEqual([]);
-  });
-});
-
-// describe('Testing challenge 2', () => {
-//   test('It should return only the strings that contain smiley faces', () => {
-//     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
-
-//     expect(findHappiness(words)).toStrictEqual(['apple (:)', ':)banana', 'cant:)aloupe']);
-//     expect(findHappiness([])).toStrictEqual([]);
-//     expect(findHappiness(['sadness'])).toStrictEqual([]);
-//     expect(findHappiness([':) yay', ':( no', '', '', '', ''])).toStrictEqual([':) yay']);
+//     expect(firstLetters(words)).toStrictEqual(['a','b','c']);
+//     expect(firstLetters(['a', 'b', 'c', 'd'])).toStrictEqual(['a', 'b', 'c', 'd']);
+//     expect(firstLetters([])).toStrictEqual([]);
 //   });
 // });
+
+describe('Testing challenge 2', () => {
+  test('It should return only the strings that contain smiley faces', () => {
+    const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
+
+    expect(findHappiness(words)).toStrictEqual(['apple (:)', ':)banana', 'cant:)aloupe']);
+    expect(findHappiness([])).toStrictEqual([]);
+    expect(findHappiness(['sadness'])).toStrictEqual([]);
+    expect(findHappiness([':) yay', ':( no', '', '', '', ''])).toStrictEqual([':) yay']);
+  });
+});
 
 // describe('Testing challenge 3', () => {
 //   test('It should return a standardized set of phone numbers', () => {
