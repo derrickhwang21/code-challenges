@@ -34,9 +34,11 @@ const findHappiness = (strs) => {
 // ------------------------------------------------------------------------------------------------
 
 const standardizePhoneNumbers = (phoneNumbers) => {
-  // Solution code here...
+    
+    return phoneNumbers.map(element => element.match(/[0-9]/g).join(''));
 };
-
+const nums = ['(123) 456-7890', '(222) 222-2222'];
+console.log(standardizePhoneNumbers(nums));
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 4
 //
@@ -163,25 +165,25 @@ const characterByIndex = (strs) => {
 //   });
 // });
 
-describe('Testing challenge 2', () => {
-  test('It should return only the strings that contain smiley faces', () => {
-    const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
+// describe('Testing challenge 2', () => {
+//   test('It should return only the strings that contain smiley faces', () => {
+//     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
-    expect(findHappiness(words)).toStrictEqual(['apple (:)', ':)banana', 'cant:)aloupe']);
-    expect(findHappiness([])).toStrictEqual([]);
-    expect(findHappiness(['sadness'])).toStrictEqual([]);
-    expect(findHappiness([':) yay', ':( no', '', '', '', ''])).toStrictEqual([':) yay']);
-  });
-});
-
-// describe('Testing challenge 3', () => {
-//   test('It should return a standardized set of phone numbers', () => {
-//     const nums = ['(123) 456-7890', '(222) 222-2222'];
-
-//     expect(standardizePhoneNumbers(nums)).toStrictEqual(['1234567890', '2222222222']);
-//     expect(standardizePhoneNumbers([nums[0]])).toStrictEqual(['1234567890']);
+//     expect(findHappiness(words)).toStrictEqual(['apple (:)', ':)banana', 'cant:)aloupe']);
+//     expect(findHappiness([])).toStrictEqual([]);
+//     expect(findHappiness(['sadness'])).toStrictEqual([]);
+//     expect(findHappiness([':) yay', ':( no', '', '', '', ''])).toStrictEqual([':) yay']);
 //   });
 // });
+
+describe('Testing challenge 3', () => {
+  test('It should return a standardized set of phone numbers', () => {
+    const nums = ['(123) 456-7890', '(222) 222-2222'];
+
+    expect(standardizePhoneNumbers(nums)).toStrictEqual(['1234567890', '2222222222']);
+    expect(standardizePhoneNumbers([nums[0]])).toStrictEqual(['1234567890']);
+  });
+});
 
 // describe('Testing challenge 4', () => {
 //   test('It should only return the odd indexed characters from the string', () => {
