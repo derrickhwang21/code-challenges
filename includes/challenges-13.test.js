@@ -37,8 +37,7 @@ const standardizePhoneNumbers = (phoneNumbers) => {
     
     return phoneNumbers.map(element => element.match(/[0-9]/g).join(''));
 };
-const nums = ['(123) 456-7890', '(222) 222-2222'];
-console.log(standardizePhoneNumbers(nums));
+
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 4
 //
@@ -48,9 +47,14 @@ console.log(standardizePhoneNumbers(nums));
 // ------------------------------------------------------------------------------------------------
 
 const onlyOddChars = (str) => {
-  // Solution code here...
-};
+    let modifiedString = str.split('');  
+    return modifiedString.filter(element => element ? element%2 : element);
 
+};
+        
+
+let num = ''
+// console.log(onlyOddChars(num));
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 5
 //
@@ -59,9 +63,15 @@ const onlyOddChars = (str) => {
 // ------------------------------------------------------------------------------------------------
 
 const allHappy = (strs) => {
-  // Solution code here...
-};
 
+    for (let i in strs){
+        let happyi = strs[i];
+        happyi.includes(':)');
+    }
+    
+};
+const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
+console.log(allHappy(words))
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 6
 //
@@ -70,7 +80,7 @@ const allHappy = (strs) => {
 // ------------------------------------------------------------------------------------------------
 
 const findAnything = (strs, target) => {
-  // Solution code here...
+  return strs.filter(element => element.includes(target));
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -176,14 +186,14 @@ const characterByIndex = (strs) => {
 //   });
 // });
 
-describe('Testing challenge 3', () => {
-  test('It should return a standardized set of phone numbers', () => {
-    const nums = ['(123) 456-7890', '(222) 222-2222'];
+// describe('Testing challenge 3', () => {
+//   test('It should return a standardized set of phone numbers', () => {
+//     const nums = ['(123) 456-7890', '(222) 222-2222'];
 
-    expect(standardizePhoneNumbers(nums)).toStrictEqual(['1234567890', '2222222222']);
-    expect(standardizePhoneNumbers([nums[0]])).toStrictEqual(['1234567890']);
-  });
-});
+//     expect(standardizePhoneNumbers(nums)).toStrictEqual(['1234567890', '2222222222']);
+//     expect(standardizePhoneNumbers([nums[0]])).toStrictEqual(['1234567890']);
+//   });
+// });
 
 // describe('Testing challenge 4', () => {
 //   test('It should only return the odd indexed characters from the string', () => {
@@ -204,14 +214,14 @@ describe('Testing challenge 3', () => {
 //   });
 // });
 
-// describe('Testing challenge 6', () => {
-//   test('It should find all the strings that contain a given string', () => {
-//     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
+describe('Testing challenge 6', () => {
+  test('It should find all the strings that contain a given string', () => {
+    const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
-//     expect(findAnything(words, ':)')).toStrictEqual(findHappiness(words));
-//     expect(findAnything(words, 'i')).toStrictEqual(['things', 'missing that thing']);
-//   });
-// });
+    expect(findAnything(words, ':)')).toStrictEqual(findHappiness(words));
+    expect(findAnything(words, 'i')).toStrictEqual(['things', 'missing that thing']);
+  });
+});
 
 // describe('Testing challenge 7', () => {
 //   test('It should determine whether all the strings contain a given string', () => {
