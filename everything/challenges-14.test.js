@@ -85,9 +85,10 @@ let starWarsData = [{
 }]
 
 let biggerThanLuke = (data) => {
-	// Solution code here...
-}
-
+	
+	return data.filter(element => element.mass > 77).map(heavyElement => heavyElement.name).join(' - ');		
+};
+console.log(biggerThanLuke(starWarsData));
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 3
 Write a function named sortBy that takes in an array of objects, each of which has a particular property, 
