@@ -129,7 +129,7 @@ const sortBy = (property, objs) => {
 // ------------------------------------------------------------------------------------------------
 
 const detectTicTacToeWin = (board) => {
-	// Solution code here...
+
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -143,7 +143,7 @@ const detectTicTacToeWin = (board) => {
 // https:/missingslash.org returns false because url malformed
 // ------------------------------------------------------------------------------------------------
 const isSecure = (url) => {
-// Solution code here...
+	return url.search(/^https:\/\//) > -1 ? true : false;
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -173,36 +173,36 @@ const isSecure = (url) => {
 //   });
 // });
 
-describe('Testing challenge 3', () => {
-  test('It should sort items by a price', () => {
+// describe('Testing challenge 3', () => {
+//   test('It should sort items by a price', () => {
 
-    expect(sortBy('price', [
-      {name: 'Sweatshirt', price: 45},
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15}
-    ])).toStrictEqual([
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15},
-      {name: 'Sweatshirt', price: 45},
-    ]);
+//     expect(sortBy('price', [
+//       {name: 'Sweatshirt', price: 45},
+//       {name: 'Bookmark', price: 2.50},
+//       {name: 'Tote bag', price: 15}
+//     ])).toStrictEqual([
+//       {name: 'Bookmark', price: 2.50},
+//       {name: 'Tote bag', price: 15},
+//       {name: 'Sweatshirt', price: 45},
+//     ]);
 		
-  });
+//   });
 
-  test('It should sort items by name', () => {
+//   test('It should sort items by name', () => {
 		
-    expect(sortBy('name', [
-      {name: 'Sweatshirt', price: 45},
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15}
-    ])).toStrictEqual([
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Sweatshirt', price: 45},
-      {name: 'Tote bag', price: 15},
-    ]);
+//     expect(sortBy('name', [
+//       {name: 'Sweatshirt', price: 45},
+//       {name: 'Bookmark', price: 2.50},
+//       {name: 'Tote bag', price: 15}
+//     ])).toStrictEqual([
+//       {name: 'Bookmark', price: 2.50},
+//       {name: 'Sweatshirt', price: 45},
+//       {name: 'Tote bag', price: 15},
+//     ]);
 		
-  });
+//   });
 
-});
+// });
 
 // describe('Testing challenge 4', () => {
 //   test('It should return true if there are three in a row', () => {
@@ -219,12 +219,12 @@ describe('Testing challenge 3', () => {
 //   });
 // });
 
-// describe('Testing challenge 5', () => {
-//   test('It should check if url is https', () => {
+describe('Testing challenge 5', () => {
+  test('It should check if url is https', () => {
 
-//     expect(isSecure('http://www.insecure.com')).toBe(false); 
-//     expect(isSecure('https://secure.com')).toBe(true); 
-//     expect(isSecure('https:/missingslash.org')).toBe(false); 
-//   });
-// });
+    expect(isSecure('http://www.insecure.com')).toBe(false); 
+    expect(isSecure('https://secure.com')).toBe(true); 
+    expect(isSecure('https:/missingslash.org')).toBe(false); 
+  });
+});
 
